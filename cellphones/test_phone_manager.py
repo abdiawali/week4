@@ -125,15 +125,28 @@ class TestPhoneManager(unittest.TestCase):
         with self.assertRaises(PhoneError):
             testAssignmentMgr.assign(testPhone2.id, employee1)
 
-"""
+
 
     def test_assign_phone_to_the_employee_who_already_has_this_phone(self):
         # TODO The method should not make any changes but NOT raise a PhoneError if a phone
         # is assigned to the same user it is currenly assigned to.
 
-        self.fail()
+        testAssignmentMgr = PhoneAssignments()
+        
+        testPhone1 = Phone(1, 'Apple', 'iPhone 6')
+        testPhone2 = Phone(1, 'Apple', 'iPhone 6')
 
+        testAssignmentMgr.add_phone(testPhone1)
+  
+        employee1 = Employee(1, 'Alice')
 
+        testAssignmentMgr.add_employee(employee1)
+
+        testAssignmentMgr.assign(testPhone1.id, employee1)
+        
+        self.assertIsNone(testAssignmentMgr.assign(testPhone2.id, employee1))
+
+"""
     def test_un_assign_phone(self):
         # TODO write this test and remove the self.fail() statement
         # Assign a phone, unasign the phone, verify the employee_id is None
