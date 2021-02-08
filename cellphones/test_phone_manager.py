@@ -148,12 +148,26 @@ class TestPhoneManager(unittest.TestCase):
         #test it's none when assigned same phone to the same employee
         self.assertIsNone(testAssignmentMgr.assign(testPhone2.id, employee1))
 
-"""
+
     def test_un_assign_phone(self):
         # TODO write this test and remove the self.fail() statement
         # Assign a phone, unasign the phone, verify the employee_id is None
-        self.fail()
+        testAssignmentMgr = PhoneAssignments()
+        #create new phones
+        testPhone1 = Phone(1, 'Apple', 'iPhone 6')
+        #add new phones to the phone list
+        testAssignmentMgr.add_phone(testPhone1)
+        #create new employee
+        employee1 = Employee(1, 'Alice')
+        #add enw employee to the employee list
+        testAssignmentMgr.add_employee(employee1)
+        #assign employee1 with phone1
+        testAssignmentMgr.assign(testPhone1.id, employee1)
+        testAssignmentMgr.un_assign(testPhone1.id)
 
+        #test it's none after unassign employee by checking phone's employee 
+        self.assertIsNone(testPhone1.employee_id)
+"""
 
     def test_get_phone_info_for_employee(self):
         # TODO write this test and remove the self.fail() statement
