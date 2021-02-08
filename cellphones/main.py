@@ -26,6 +26,8 @@ def main():
     print(assignments.phone_info(employee1))  # Employee 1, no phone. Prints None
     print(assignments.phone_info(employee2))  # Employee 2, has Phone 1
     print(assignments.phone_info(employee3))  # Employee 3 has Phone 2
+    a=assignments.phone_info(employee2)
+    print(a.employee_id)
 
     assignments.un_assign(phone2.id)          # un-assign phone 2 (which belonged to employee 3)
     print(assignments.phone_info(employee3))  # None
